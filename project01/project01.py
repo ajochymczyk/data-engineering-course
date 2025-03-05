@@ -3,7 +3,6 @@ import pandas as pd
 import json
 import pickle
 
-
 df = pd.read_csv('proj1_ex01.csv')
 
 columns_info = []
@@ -55,13 +54,12 @@ pd.set_option('display.max_columns', None)
 print(df)
 df.to_csv('proj1_ex03_columns.csv', index=False)
 
+
 # 4.4 Exercise 4: Output formats
 
 df.to_excel('proj1_ex04_excel.xlsx', index=False)
 df.to_json('proj1_ex04_json.json', orient="records")
 df.to_pickle('proj1_ex04_pickle.pkl')
-
-
 
 
 # 4.5 Exercise 5: Selecting rows and columns
@@ -82,7 +80,6 @@ selected_rows = selected_rows.fillna('')
 
 with open('proj1_ex05_table.md', 'w') as f:
     f.write(selected_rows.to_markdown())
-
 
 print(df)
 
