@@ -3,6 +3,7 @@ import json
 pd.set_option('display.max_columns', None)
 
 # Exercise 1: Load data
+
 data1 = pd.read_json("proj3_data1.json")
 print("data1:\n", data1)
 data2 = pd.read_json("proj3_data2.json")
@@ -15,6 +16,7 @@ all_data.to_json("proj3_ex01_all_data.json")
 
 
 # Exercise 2: Missing values
+
 missing_values = all_data.isnull().sum()
 print("missing_values:\n", missing_values)
 missing_values = missing_values[missing_values > 0]
@@ -31,6 +33,7 @@ all_data.to_json("proj3_ex03_descriptions.json")
 print("all_data:\n", all_data)
 
 # Exercise 4: Joining datasets
+
 more_data = pd.read_json("proj3_more_data.json")
 print("more_data:\n", more_data)
 print("all_data:\n", all_data)
@@ -40,6 +43,7 @@ print("joined_data:\n", joined_data)
 
 
 # Exercise 5: Iterating over DataFrames
+
 for index, row in joined_data.iterrows():
     description = row['description'].replace(' ', '_').lower()
     filename = f"proj3_ex05_{description}.json"
@@ -66,6 +70,7 @@ for index, row in joined_data.iterrows():
 
 
 # Exercise 6: Aggregation
+
 aggregations = params['aggregations']
 agg_results = {}
 for col, func in aggregations:
@@ -103,6 +108,7 @@ mean_values_filtered.to_csv("proj3_ex07_groups.csv", header=True, index=True)
 
 
 # Exercise 8: Reshaping data
+
 pivot_index = params['pivot_index']
 pivot_columns = params['pivot_columns']
 pivot_values = params['pivot_values']
