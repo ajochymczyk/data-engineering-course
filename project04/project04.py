@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 
 # 2.1 Exercise 1: Loading data and basic operations
+
 with open('proj4_params.json', 'r') as f:
     params = json.load(f)
 
@@ -34,7 +35,9 @@ gdf[['lamp_id', 'lat', 'lon']].to_csv('proj4_ex01_coords.csv', index=False)
 
 print(gdf[['lamp_id', 'lat', 'lon']])
 
+
 # 2.2 Exercise 2: Loading data from OpenStreetMap
+
 pd.set_option('display.max_columns', None)
 
 road = ox.geometries_from_place('Kraków, Poland', tags={'highway': 'tertiary'})
@@ -44,6 +47,7 @@ road = road.rename(mapper={'osmid': 'osm_id'}, axis=1)
 road.to_file('proj4_ex02_roads.geojson', driver='GeoJSON')
 
 print(road)
+
 
 # 2.3 Exercise 3: Spatial joins
 
@@ -76,10 +80,6 @@ df_street_point_counts = df_street_point_counts.groupby('name')['point_count'].s
 df_street_point_counts.to_csv('proj4_ex03_streets_points.csv', index=False)
 
 print("df_street_point_counts:\n", df_street_point_counts)
-
-
-
-
 
 
 # 2.4 Exercise 4: Drawing maps
