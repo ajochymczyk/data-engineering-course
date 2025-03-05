@@ -83,6 +83,7 @@ print(updated_df.dtypes)
 
 
 # 3.4 Exercise 4: Number extraction
+
 def extract_number(text):
     pattern = r'(\-?[0-9]+(?:[.,][0-9]+)?)'
     match = re.search(pattern, str(text))
