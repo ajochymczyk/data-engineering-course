@@ -10,11 +10,14 @@ con = sqlite3.connect("proj6_readings.sqlite")
 cur = con.cursor()
 
 # Exercise 1: Basic counting
+
 result_ex01 = cur.execute("SELECT COUNT(DISTINCT detector_id) FROM readings;").fetchall()
 df_ex01 = pd.DataFrame(result_ex01, columns=['detector_count'])
 df_ex01.to_pickle("proj6_ex01_detector_no.pkl")
 
+
 # Exercise 2: Some stats for the detectors
+
 result_ex02 = cur.execute("""
     SELECT 
         detector_id, 
@@ -28,7 +31,9 @@ result_ex02 = cur.execute("""
 df_ex02 = pd.DataFrame(result_ex02, columns=['detector_id', 'count(count)', 'min(starttime)', 'max(starttime)'])
 df_ex02.to_pickle("proj6_ex02_detector_stat.pkl")
 
+
 # Exercise 3: Moving Window
+
 result_ex03 = cur.execute("""
     SELECT 
         detector_id, 
@@ -41,7 +46,9 @@ result_ex03 = cur.execute("""
 df_ex03 = pd.DataFrame(result_ex03, columns=['detector_id', 'count', 'prev_count'])
 df_ex03.to_pickle("proj6_ex03_detector_146_lag.pkl")
 
+
 # Exercise 4: Window
+
 result_ex04 = cur.execute("""
     SELECT 
         detector_id, 
